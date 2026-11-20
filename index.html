@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Gift ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Playfair+Display:ital,wght@0,500;1,500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #050505, #190609, #090909, #24080d);
+    color: #f4eeee;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    z-index: 0;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    opacity: 0.7;
+    color: #b51f37;
+    text-shadow: 0 0 12px #a30e29;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* COVER */
+
+.cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, #330b13 0%, transparent 60%);
+}
+
+.cover-box {
+    border: 1px solid rgba(190, 44, 66, 0.45);
+    background: rgba(15, 9, 10, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 45px 25px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(130, 10, 30, 0.25),
+                inset 0 0 25px rgba(100, 0, 15, 0.12);
+}
+
+.cover-decoration {
+    font-size: 35px;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 0 12px #b51f37);
+}
+
+.cover h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    color: #f3dddd;
+    text-shadow: 0 0 15px #8e152b;
+}
+
+.cover p {
+    margin: 15px 0 25px;
+    color: #bfa4a8;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* DATE */
+
+.birthday-date {
+    margin-top: -5px;
+    margin-bottom: 25px;
+    color: #c36a7d;
+    font-size: 12px;
+    letter-spacing: 5px;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 0 12px #8d172b;
+    animation: pulse 2s infinite;
+}
+
+.main-btn {
+    padding: 14px 25px;
+    border-radius: 50px;
+    border: 1px solid #9e243a;
+    background: linear-gradient(135deg, #8d172b, #320811);
+    color: white;
+    box-shadow: 0 0 15px #8d172b55;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px #b32a46;
+}
+
+/* LETTER PAGE */
+
+#letterPage {
+    display: none;
+    min-height: 100vh;
+    padding: 50px 18px;
+    background: radial-gradient(circle at top, #290911 0%, #0b0809 55%, #050505 100%);
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.heading h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: #e7c8ce;
+    text-shadow: 0 0 18px #8c172b;
+}
+
+.heading p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #a47d84;
+    margin-top: 10px;
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 650px;
+    margin: auto;
+}
+
+.letter-card {
+    min-height: 165px;
+    border: 1px solid #4e1821;
+    background: linear-gradient(145deg, #1c1114, #0b0809);
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 18px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #7e152011;
+}
+
+.letter-card:hover {
+    transform: translateY(-5px);
+    border-color: #a7354b;
+    box-shadow: 0 0 22px #a51e3733;
+}
+
+.letter-card span {
+    font-size: 30px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 7px #8c172b);
+}
+
+.letter-card h3 {
+    color: #e5c1c8;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+}
+
+.letter-card p {
+    font-size: 10px;
+    color: #a88a90;
+    margin-top: 8px;
+}
+
+.special {
+    grid-column: span 2;
+    background: linear-gradient(145deg, #260c12, #100809);
+    border-color: #772238;
+}
+
+.bottom-text {
+    text-align: center;
+    margin: 35px 0 15px;
+    font-family: 'Playfair Display', serif;
+    color: #b58a92;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 430px;
+    background: linear-gradient(145deg, #241015, #0b0809);
+    border: 1px solid #8b253c;
+    border-radius: 22px;
+    padding: 30px 23px;
+    text-align: center;
+    box-shadow: 0 0 35px #8b253c33;
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-box h2 {
+    color: #edcbd2;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 18px;
+}
+
+.modal-box p {
+    font-size: 13px;
+    line-height: 2;
+    color: #e2d5d8;
+    white-space: pre-line;
+}
+
+.close-btn {
+    margin-top: 22px;
+    background: linear-gradient(135deg, #8b2036, #3c101b);
+    color: white;
+    border: 1px solid #b75a6e;
+    padding: 10px 25px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    box-shadow: 0 0 18px #a32b46;
+}
+
+/* FINAL BUTTON */
+
+.birthday-trigger {
+    text-align: center;
+    margin: 45px auto;
+    padding: 20px;
+}
+
+.birthday-trigger button {
+    padding: 15px 24px;
+    background: linear-gradient(135deg, #a12640, #400d18);
+    color: white;
+    border: 1px solid #ce7185;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px #a1264055;
+    animation: pulse 2s infinite;
+    transition: 0.3s;
+}
+
+.birthday-trigger button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #c63a58;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px #a1264044;
+    }
+    50% {
+        box-shadow: 0 0 25px #c83a58;
+    }
+}
+
+/* BIRTHDAY CLOSING */
+
+.birthday-closing {
+    display: none;
+    min-height: 100vh;
+    padding: 45px 18px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #3a0b16 0%, #18070b 50%, #050505 100%);
+    animation: revealBirthday 1.5s ease forwards;
+}
+
+@keyframes revealBirthday {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.light-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0 40px;
+}
+
+.light-row span {
+    width: 12px;
+    height: 12px;
+    background: #d44a63;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #d44a63, 0 0 25px #a51b37;
+    animation: twinkle 0.8s infinite alternate;
+}
+
+.light-row span:nth-child(2n) {
+    animation-delay: 0.3s;
+    background: #e6b8b8;
+    box-shadow: 0 0 10px #e6b8b8, 0 0 25px #b84b60;
+}
+
+.light-row span:nth-child(3n) {
+    animation-delay: 0.6s;
+    background: #8e172d;
+    box-shadow: 0 0 10px #8e172d, 0 0 25px #e02d50;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.3;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+.closing-hearts {
+    font-size: 30px;
+    letter-spacing: 15px;
+    color: #d84862;
+    animation: pulse 2s infinite;
+}
+
+.birthday-closing h1 {
+    margin-top: 25px;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(38px, 10vw, 70px);
+    color: #f5e5e7;
+    text-shadow: 0 0 10px #bd304d,
+                 0 0 25px #a51b37,
+                 0 0 50px #650b20;
+    animation: birthdayGlow 2s infinite alternate;
+}
+
+@keyframes birthdayGlow {
+    from {
+        text-shadow: 0 0 10px #bd304d, 0 0 20px #a51b37;
+    }
+    to {
+        text-shadow: 0 0 20px #ffffff, 0 0 40px #c73655, 0 0 70px #7b102a;
+    }
+}
+
+.birthday-closing h2 {
+    margin-top: 18px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(25px, 6vw, 42px);
+    font-style: italic;
+    color: #dba7b0;
+    text-shadow: 0 0 20px #9c1b36;
+}
+
+.closing-line {
+    margin: 30px 0;
+    color: #a94056;
+    letter-spacing: 5px;
+}
+
+.birthday-closing p {
+    color: #e2cbd0;
+    line-height: 2;
+    font-size: 13px;
+    margin: 20px 0;
+}
+
+.closing-love {
+    margin-top: 35px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: #ce687c;
+    text-shadow: 0 0 15px #941c35;
+}
+
+.bottom-lights {
+    margin-top: 50px;
+}
+
+.final-hearts {
+    font-size: 23px;
+    color: #bd304d;
+    letter-spacing: 10px;
+    margin-top: 25px;
+    text-shadow: 0 0 12px #941c35;
+}
+
+/* =========================================
+   NEW LAST SLIDE - NANDA & ARAA
+========================================= */
+
+#lastSlide {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 35%, #400c19 0%, #1a060b 35%, #050505 75%);
+    animation: revealBirthday 1.3s ease forwards;
+}
+
+.last-slide-box {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px 22px;
+    border: 1px solid rgba(167, 35, 61, 0.45);
+    border-radius: 25px;
+    background: rgba(10, 5, 7, 0.55);
+    box-shadow: 0 0 35px #8f173033,
+                inset 0 0 30px #4c091522;
+}
+
+.last-top {
+    color: #b73550;
+    font-size: 12px;
+    letter-spacing: 5px;
+    margin-bottom: 22px;
+}
+
+.last-decoration {
+    font-size: 26px;
+    color: #d34a64;
+    letter-spacing: 10px;
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+.last-slide-box h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(45px, 13vw, 78px);
+    letter-spacing: 7px;
+    color: #f4dce1;
+    text-shadow: 0 0 10px #a82342,
+                 0 0 25px #a82342,
+                 0 0 60px #670c22;
+    animation: nandaGlow 2s infinite alternate;
+}
+
+@keyframes nandaGlow {
+    from {
+        text-shadow: 0 0 10px #a82342, 0 0 20px #670c22;
+    }
+    to {
+        text-shadow: 0 0 20px #ffffff,
+                     0 0 40px #c83252,
+                     0 0 70px #790d29;
+    }
+}
+
+.last-subtitle {
+    margin-top: 8px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #c98191;
+    letter-spacing: 2px;
+}
+
+.last-divider {
+    color: #a12b45;
+    margin: 25px 0;
+    letter-spacing: 5px;
+}
+
+.last-message {
+    color: #e6d1d5;
+    font-size: 13px;
+    line-height: 2.1;
+    text-align: left;
+}
+
+.last-message p {
+    margin-bottom: 18px;
+}
+
+.last-highlight {
+    color: #e49ba9;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 17px;
+    margin-top: 25px;
+}
+
+.last-signature {
+    margin-top: 35px;
+    color: #d36b80;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    text-shadow: 0 0 15px #90172f;
+    line-height: 1.8;
+}
+
+.last-footer {
+    margin-top: 25px;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #873044;
+}
+
+.last-hearts {
+    font-size: 25px;
+    color: #c83c59;
+    letter-spacing: 10px;
+    margin-top: 25px;
+    animation: pulse 2s infinite;
+}
+
+/* LAST SLIDE BUTTON */
+
+.next-slide-btn {
+    margin-top: 35px;
+    padding: 14px 25px;
+    border-radius: 50px;
+    color: #fff;
+    border: 1px solid #b4435c;
+    background: linear-gradient(135deg, #8d172d, #300912);
+    box-shadow: 0 0 20px #8d172d55;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.next-slide-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #c33a56;
+}
+
+/* MOBILE */
+
+@media(max-width: 400px) {
+    .cover h1 {
+        font-size: 32px;
+    }
+
+    .letter-grid {
+        gap: 10px;
+    }
+
+    .letter-card {
+        min-height: 145px;
+        padding: 12px;
+    }
+
+    .last-slide-box {
+        padding: 25px 17px;
+    }
+
+    .last-slide-box h1 {
+        letter-spacing: 4px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- COVER -->
+
+<section class="cover" id="homePage">
+    <div class="cover-box">
+        <div class="cover-decoration">🎁 ♥ 🖤</div>
+
+        <h1>Happy Birthday<br>My Pacar ♡</h1>
+
+        <p>A LITTLE SURPRISE FOR YOU</p>
+
+        <!-- DATE -->
+        <div class="birthday-date">
+            ✦ 27 NOVEMBER 2026 ✦
+        </div>
+
+        <button class="main-btn" onclick="openLetters()">
+            OPEN YOUR GIFT ♡
+        </button>
+    </div>
+</section>
+
+<!-- LETTER PAGE -->
+
+<section id="letterPage">
+
+    <div class="heading">
+        <h1>Little Letters ♡</h1>
+        <p>OPEN EACH LETTER FOR YOU</p>
+    </div>
+
+    <div class="letter-grid">
+
+        <div class="letter-card" onclick="openLetter(0)">
+            <span>💌</span>
+            <h3>Birthday Wishes</h3>
+            <p>Open your first letter ♡</p>
+        </div>
+
+        <div class="letter-card" onclick="openLetter(1)">
+            <span>♡</span>
+            <h3>For You</h3>
+            <p>A little reminder</p>
+        </div>
+
+        <div class="letter-card" onclick="openLetter(2)">
+            <span>🥀</span>
+            <h3>I'm Sorry</h3>
+            <p>Something from my heart</p>
+        </div>
+
+        <div class="letter-card" onclick="openLetter(3)">
+            <span>✨</span>
+            <h3>Someday</h3>
+            <p>A wish for us</p>
+        </div>
+
+        <div class="letter-card special" onclick="openLetter(4)">
+            <span>♥</span>
+            <h3>One Last Letter</h3>
+            <p>Read until the end ♡</p>
+        </div>
+
+    </div>
+
+    <div class="bottom-text">
+        Made with love, just for you ♡
+    </div>
+
+    <div class="birthday-trigger">
+        <button onclick="showBirthday()">
+            🎁 OPEN YOUR FINAL SURPRISE ♡
+        </button>
+    </div>
+
+</section>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <h2 id="modalTitle"></h2>
+        <p id="modalText"></p>
+        <button class="close-btn" onclick="closeLetter()">CLOSE ♡</button>
+    </div>
+</div>
+
+<!-- FINAL SURPRISE -->
+
+<div class="birthday-closing" id="birthdayClosing">
+
+    <div class="light-row">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="closing-hearts">♡ ♥ ♡</div>
+
+    <h1>HAPPY BIRTHDAY</h1>
+
+    <h2>SUMBER EMOSIKU ♡</h2>
+
+    <div class="closing-line">
+        ✦ ────── ♥ ────── ✦
+    </div>
+
+    <p>
+        May your days be filled with happiness,<br>
+        love, laughter, and beautiful things.
+    </p>
+
+    <p>
+        Semoga yang kamu impikan segera tercapai,<br>
+        dan semoga semua doa dan usaha mu<br>
+        tidak sia-sia.
+    </p>
+
+    <div class="closing-love">
+        WITH LOVE, ALWAYS ♥
+    </div>
+
+    <div class="light-row bottom-lights">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="final-hearts">
+        ♥ ♡ ♥ ♡ ♥
+    </div>
+
+    <!-- BUTTON TO LAST SLIDE -->
+
+    <div style="margin-top:35px;">
+        <button class="next-slide-btn" onclick="showLastSlide()">
+            ONE MORE THING... ♡
+        </button>
+    </div>
+
+</div>
+
+<!-- LAST SLIDE FOR NANDA -->
+
+<section id="lastSlide">
+
+    <div class="last-slide-box">
+
+        <div class="last-top">
+            A LITTLE MESSAGE JUST FOR YOU
+        </div>
+
+        <div class="last-decoration">
+            ♡ ♥ ♡
+        </div>
+
+        <h1>NANDA</h1>
+
+        <div class="last-subtitle">
+            My favorite person ♡
+        </div>
+
+        <div class="last-divider">
+            ✦ ───── ♥ ───── ✦
+        </div>
+
+        <div class="last-message">
+
+            <p>
+                Happy birthday sekali lagi, Nanda kesayangan aku. ♡
+            </p>
+
+            <p>
+                Maaf yaa aku sering bikin kamu kepikiran gara-gara sikap aku, kadang bikin kamu bingung, kadang ngambek nggak jelas, kadang kalau ditanya kenapa malah jawab "gpp" padahal sebenarnya ada apa-apa, hehe. Maaf juga kalau aku terkadang susah dimengerti, suka banyak maunya, dan bikin kamu harus ekstra sabar menghadapi tingkah aku yang satu ini.
+            </p>
+
+            <p>
+                Tapi di balik semua tingkah random aku, aku beneran sayang sama kamu. Jangan kapok ya punya pacar kayak aku, soalnya kalau kamu kapok nanti aku mau manja ke siapa, mau cerita apa, mau ganggu siapa, coba? Wkwk.
+            </p>
+
+            <p>
+                Semoga di umur kamu yang sekarang, kamu selalu diberi kebahagiaan, kesehatan, rezeki yang luas, dan semua hal baik yang selama ini kamu harapkan. Kalau ada hari yang berat, semoga kamu selalu ingat kalau kamu itu berharga dan kamu nggak harus menghadapi semuanya sendirian.
+            </p>
+
+            <p>
+                Tetap jadi Nanda yang aku kenal, tapi jangan lupa bahagia, jangan terlalu keras sama diri sendiri, dan jangan lupa kalau ada Araa yang selalu mendoakan hal-hal baik buat kamu.
+            </p>
+
+            <p class="last-highlight">
+                I love you, Nanda. Maaf kalau aku belum sempurna, tapi aku akan terus belajar jadi lebih baik. ♡
+            </p>
+
+        </div>
+
+        <div class="last-divider">
+            ♥ ───────── ♡ ───────── ♥
+        </div>
+
+        <div class="last-signature">
+            From your girl friend,<br>
+            <span style="font-size:30px;">Araa ♡</span>
+        </div>
+
+        <div class="last-footer">
+            MADE WITH LOVE, JUST FOR NANDA
+        </div>
+
+        <div class="last-hearts">
+            ♥ ♡ ♥ ♡ ♥
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+/* LETTER CONTENT */
+
+const letters = [
+
+{
+title: "Happy Birthday, Sumber Emosiku ♡",
+text: `Happy birthday, sumber emosiku. ♡
+
+Di hari spesialmu ini, aku berharap kamu selalu sehat, bahagia, panjang umur, dan semua hal yang kamu impikan bisa satu per satu terwujud.
+
+Semoga yang kamu impikan segera tercapai dan semoga semua doa serta usaha yang kamu lakukan tidak pernah sia-sia. Semoga hari-harimu ke depan selalu dipenuhi hal baik dan semoga kamu selalu punya alasan untuk tersenyum.
+
+Semoga dunia lebih banyak berpihak kepadamu, semoga semua yang sedang kamu perjuangkan mendapatkan hasil yang indah, dan semoga kebahagiaan selalu menemukan jalannya untukmu. ♥`
+},
+
+{
+title: "For You ♡",
+text: `Aku mungkin bukan seseorang yang selalu bisa bersikap sempurna. Terkadang aku banyak mengeluh, banyak maunya, dan mungkin bikin kamu capek menghadapi aku.
+
+Tapi aku juga sedang belajar menjadi lebih baik. Terima kasih sudah menjadi bagian dari hari-hariku.
+
+Semoga kamu selalu ingat kalau dirimu juga pantas mendapatkan banyak hal baik. ♡`
+},
+
+{
+title: "I'm Sorry ♡",
+text: `Maaf ya, di hari spesialmu ini aku belum bisa ada di samping kamu, ikut merayakan, dan melihat kamu bahagia secara langsung.
+
+Kalau bisa, aku ingin memberikan lebih dari sekadar ucapan. Aku ingin hari ini menjadi salah satu hari yang menyenangkan buat kamu, hari yang bisa membuatmu tersenyum dan merasa begitu berarti.
+
+Untuk sekarang, aku hanya bisa menyampaikan semuanya lewat tulisan kecil ini. Semoga tetap bisa membuatmu bahagia, walaupun cuma sedikit. ♡`
+},
+
+{
+title: "Someday ♡",
+text: `Semoga suatu hari nanti kita bisa merayakan ulang tahunmu bersama tanpa jarak, tanpa harus lewat layar, dan bisa membuat kenangan yang benar-benar kita alami bersama.
+
+Semoga keinginan kecil itu bisa menjadi kenyataan.
+
+Semoga someday, hal-hal yang hanya bisa kita bayangkan sekarang bisa menjadi cerita yang benar-benar kita kenang. ♡`
+},
+
+{
+title: "One Last Letter ♡",
+text: `Walaupun kita jauh, aku tetap menyelipkan doa-doa baik untukmu.
+
+Semoga kamu selalu dikelilingi hal baik, orang baik, dan kebahagiaan. Jangan lupa jaga diri, jaga kesehatan, dan jangan terlalu keras sama diri sendiri.
+
+Semoga semua impianmu, sekecil apa pun itu, bisa tercapai satu per satu.
+
+Enjoy your day, birthday boy. ♡`
+}
+
+];
+
+/* OPEN COVER */
+
+function openLetters() {
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("letterPage").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+/* OPEN LETTER */
+
+function openLetter(index) {
+    document.getElementById("modalTitle").innerText = letters[index].title;
+    document.getElementById("modalText").innerText = letters[index].text;
+    document.getElementById("modal").style.display = "flex";
+}
+
+/* CLOSE LETTER */
+
+function closeLetter() {
+    document.getElementById("modal").style.display = "none";
+}
+
+/* FINAL BIRTHDAY */
+
+function showBirthday() {
+    const closing = document.getElementById("birthdayClosing");
+
+    closing.style.display = "block";
+
+    closing.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+/* NEW: SHOW LAST SLIDE */
+
+function showLastSlide() {
+    const lastSlide = document.getElementById("lastSlide");
+
+    lastSlide.style.display = "block";
+
+    setTimeout(() => {
+        lastSlide.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 100);
+}
+
+/* FLOATING HEARTS */
+
+const heartSymbols = ["♥", "♡", "🖤", "❤", "✦"];
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 22) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 250);
+
+/* CLOSE MODAL OUTSIDE */
+
+document.getElementById("modal").addEventListener("click", function(e) {
+    if (e.target === this) {
+        closeLetter();
+    }
+});
+
+</script>
+
+</body>
+</html>
